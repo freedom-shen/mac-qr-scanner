@@ -12,3 +12,6 @@ DerivedData/
 # Compiled binaries
 /qrscan
 *.dSYM/
+
+# 测试时生成的夹具
+tests/fixtures/
