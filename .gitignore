@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Swift / Xcode build artifacts
+.build/
+*.o
+*.swiftmodule
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Compiled binaries
+/qrscan
+*.dSYM/
