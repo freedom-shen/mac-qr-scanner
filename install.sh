@@ -7,6 +7,11 @@ APPDIR="$HOME/Library/Application Support/mac-qr-scanner"
 SERVICES="$HOME/Library/Services"
 WORKFLOW="识别二维码.workflow"
 
+# 防御：WORKFLOW 必须非空，否则下面的 rm -rf 会误删整个 Services 目录
+[[ -n "$WORKFLOW" ]] || { echo "BUG: WORKFLOW 为空" >&2; exit 1; }
+
+command -v swiftc >/dev/null 2>&1 || { echo "错误：未找到 swiftc，请先安装 Xcode 命令行工具（xcode-select --install）" >&2; exit 1; }
+
 echo "==> 编译 qrscan"
 swiftc -O "$HERE/Sources/qrscan/main.swift" -o "$HERE/qrscan"
 
